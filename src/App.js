@@ -16,14 +16,7 @@ export default function App() {
       <header className="header">
         <h1 className="h1-searchbar">SaludGo</h1>
       </header>
-      <div className="main-components">
-        <div className="left-section">
-          <StationsTable />
-        </div>
-        <div className="right-section">
           <StationsMap />
-        </div>
-      </div>
     </div>
   );
 }

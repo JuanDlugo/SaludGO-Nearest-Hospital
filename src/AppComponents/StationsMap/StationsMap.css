@@ -1,34 +1,10 @@
-
 .component-embbeder {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .map-container {
-    margin-top: 40px;
-    flex: 2;
-  }
-  
-  .table-container {
-    margin-top: 40px;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-/* 
-  .main-components {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .left-section {
-    flex-basis: 33%; /* Ajusta el tamaño del tercio izquierdo 
-  
-  .right-section {
-    flex-basis: 66%; /* Ajusta el tamaño del tercio derecho 
-  } 
-  
-  */
-  
-  
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.table-container {
+  flex: 3;
+}

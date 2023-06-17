@@ -16,6 +16,7 @@ export default function StationsTable({ hospitals }) {
           <th style={{ width: "50%", textAlign: "left" }}>Nombre</th>
           <th>Dirección</th>
           <th>Abierto</th>
+          <th>Distancia (Km)</th>
           <th>Rating</th>
         </tr>
       </thead>
@@ -33,6 +34,7 @@ export default function StationsTable({ hospitals }) {
               <td style={{ width: "50%", textAlign: "left" }}>{name}</td>
               <td>{address}</td>
               <td>{isOpen}</td>
+              <td>{hospital.distance.toFixed(2)}</td>
               <td>{rating}</td>
             </tr>
           );
