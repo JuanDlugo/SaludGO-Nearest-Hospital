@@ -2,33 +2,38 @@ import React from "react";
 import "./StationsTable.css";
 import tableJson from "./sample_table.json";
 
-export default function StationsTable() {
+export default function StationsTable({ hospitals }) {
+  console.log("hospital table", hospitals);
+  if (!hospitals || hospitals.length === 0) {
+    // Si no hay datos de los hospitales, muestra un mensaje o componente de carga
+    return <p>Loading hospitals...</p>;
+  }
+
   return (
     <table className="price-table">
       <thead>
         <tr>
-          <th style={{ width: "50%", textAlign: "left" }}>Address</th>
-          <th>Price</th>
-          <th>Full Tank</th>
-          <th>Saved</th>
+          <th style={{ width: "50%", textAlign: "left" }}>Nombre</th>
+          <th>Dirección</th>
+          <th>Abierto</th>
+          <th>Rating</th>
         </tr>
       </thead>
       <tbody>
-        {tableJson.map((row) => {
-          var color = "black";
-          if (row.better_average == 1) {
-            color = "green";
-          } else if (row.better_average == -1) {
-            color = "red";
-          }
+        {hospitals.map((hospital) => {
+          // Obtén los datos del hospital para mostrarlos en la tabla
+          const name = hospital.name;
+          const address = hospital.vicinity;
+          const rating = hospital.rating;
+          const isOpen = hospital.opening_hours?.open_now ? "Sí" : "No"; // Comprueba si hay datos de horario y si está abierto
+          console.log(isOpen);
+
           return (
-            <tr key={row.address}>
-              <td style={{ width: "50%", textAlign: "left" }}>
-                <a href={row.google_map_link}>{row.address}</a>
-              </td>
-              <td>{row.price_per_L.toString() + " €/L"}</td>
-              <td>{row.price_tank.toString() + " €"}</td>
-              <td style={{ color: color }}>{row.delta_average + " €"}</td>
+            <tr key={hospital.place_id}>
+              <td style={{ width: "50%", textAlign: "left" }}>{name}</td>
+              <td>{address}</td>
+              <td>{isOpen}</td>
+              <td>{rating}</td>
             </tr>
           );
         })}
